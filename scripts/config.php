@@ -1,4 +1,6 @@
 <?php
+try{
+
 	define("DB_SERVER", "localhost");
 	define("DB_USERNAME", "root");
 	define("DB_PASSWORD", "");
@@ -6,7 +8,7 @@
 	
 	$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 	if(mysqli_connect_errno()) {
-		echo "Connection error2: " . mysqli_connect_error();
+		echo "Connection error3: " . mysqli_connect_error();
 		causeARandomERrror($nonexistentvar);
 		$query = "CREATE DATABASE IF NOT EXISTS" . DB_DATABASE . ";";
 		if(mysqli_query($db, $query)) {
@@ -17,4 +19,7 @@
 			die();
 		}
 	}
+}catch(Exception $e) {
+	echo "error: " . $e->getMessage();
+}
 ?>
