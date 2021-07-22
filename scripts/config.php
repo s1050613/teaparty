@@ -7,13 +7,14 @@
 	$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 	if(mysqli_connect_errno()) {
 		echo "Connection error: " . mysqli_connect_error();
-		/*
-		$query = "CREATE DATABASE " . DB_DATABASE . ";";
+		
+		$query = "CREATE DATABASE IF NOT EXISTS" . DB_DATABASE . ";";
 		if(mysqli_query($db, $query)) {
 			echo "Database created!";
+			$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 		} else {
 			echo "Couldn't create database!";
+			die();
 		}
-		*/
 	}
 ?>
